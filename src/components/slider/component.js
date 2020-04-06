@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import { Swipeable } from "react-swipeable";
-import { Grid, Box, Typography } from "@material-ui/core";
+import { Grid, Box } from "@material-ui/core";
 
 function Component(props) {
   const numItems = props.data.length;

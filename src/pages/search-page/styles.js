@@ -1,6 +1,7 @@
 const styles = () => ({
   Container: {
     padding: 0,
+    minHeight: "100vh",
   },
   poptext: {
     marginLeft: "3%",

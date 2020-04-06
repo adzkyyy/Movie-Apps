@@ -1,31 +1,31 @@
-import React, { useState } from "react";
-import { AppBar, Grid, Typography, Toolbar } from "@material-ui/core";
-import SearchIcon from "@material-ui/icons/Search";
+import React from "react";
+import { AppBar, Grid, Toolbar } from "@material-ui/core";
+import ArrowBackIosIcon from "@material-ui/icons/ArrowBackIos";
+import { withRouter } from "react-router-dom";
 
 function Component(props) {
   const { classes } = props;
-  const [srch, setSrch] = useState(false);
+
   return (
     <React.Fragment>
       <AppBar position="static" className={classes.AppBar}>
         <Toolbar>
           <Grid container spacing={0} style={{ alignItems: "center" }}>
-            <Grid item xs={1}></Grid>
-            {srch ? (
-              <Grid item xs={8}>
-                <input
-                  type="text"
-                  placeholder="Search Movie..."
-                  className={classes.searchbox}
-                />
-              </Grid>
-            ) : (
-              <Grid item xs={8}>
-                <Typography variant="h5">Movie Apps</Typography>
-              </Grid>
-            )}
-            <Grid align="center" item xs={3}>
-              <SearchIcon onClick={() => setSrch(!srch)} />
+            <Grid item xs={2}>
+              <ArrowBackIosIcon
+                onClick={() => props.history.push("/")}
+                style={{ color: "#f6f6f6" }}
+              />
+            </Grid>
+
+            <Grid item xs={8}>
+              <input
+                type="text"
+                placeholder="Search Movie..."
+                className={classes.searchbox}
+                onChange={props.handleInput}
+                onKeyPress={props.search}
+              />
             </Grid>
           </Grid>
         </Toolbar>
@@ -34,4 +34,4 @@ function Component(props) {
   );
 }
 
-export default Component;
+export default withRouter(Component);
